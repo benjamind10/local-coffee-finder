@@ -14,7 +14,7 @@ A webpage that allows a user to find local coffee shops in there area or find re
 
 
 ## Contribution
-benjamind10
-1Kingslayer
-trand09
-JClair21
+* benjamind10
+* 1Kingslayer
+* trand09
+* JClair21
