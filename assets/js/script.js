@@ -1,9 +1,24 @@
+// Create the script tag, set the appropriate attributes
+let script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&callback=initMap`;
+script.async = true;
+
+// Create the script tag for places autocomplete
+
 // JQuery Selectors
 let searchBarEl = $('#search-address');
 
 // Global Variables
 let pos = {};
 
+// Event Handlers
+$(document).on('submit', function (event) {
+  event.preventDefault();
+
+  console.log(searchBarEl.val().trim());
+});
+
+// Functions
 function getLocation() {
   navigator.geolocation.getCurrentPosition(position => {
     pos = {
@@ -13,15 +28,22 @@ function getLocation() {
   });
 }
 
-// Create the script tag, set the appropriate attributes
-let script = document.createElement('script');
-script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&callback=initMap`;
-script.async = true;
+function initAutoComplete() {
+  let autocomplete;
+
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById('search-address'),
+    {
+      componentRestrictions: { country: 'us' },
+      types: ['address'],
+      fields: ['address_components', 'geometry', 'icon', 'name'],
+    }
+  );
+}
 
 // Attach callback function to the `window` object
 function initMap(pos) {
   window.initMap = function () {
-    debugger;
     let options = {};
     if (pos === undefined) {
       options = {
@@ -45,8 +67,4 @@ function initMap(pos) {
   document.head.appendChild(script);
 }
 
-$(document).on('submit', function (event) {
-  event.preventDefault();
-
-  console.log(searchBarEl.val().trim());
-});
+function findPlace(searchVal) {}
