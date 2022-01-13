@@ -9,12 +9,14 @@
     href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet"
     href="assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css%22/%3E">
     <title>Local Coffee Finder</title>
 
 </head>
 <body>
     <header>
         <h1>
+          <!--Navigation bar-->
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
               
@@ -67,16 +69,33 @@
               <div class="searchbar">
                 <input id="search" type="text">
                 <label for="search" class="active">Search Zipcode</label>
-                <button id="searchButton" class=" btn waves-effect blue-grey darken-1" type="submit"
+                <button id="searchButton" type="submit"
                     name="action">Submit
                 </button>
                 <div class="search-results"></div>
               </div>
-              
+            </section>
+
+            <!--Map section-->
+            <section>
+              <div class="map">
+                <h1>Map</h1>
+
+              </div>
+          
+            </section>
+
+            <!--Top cafes hyperlinks-->
+            <section>
+              <div class="topcafes">
+                <h1>Top Cafes</h1>
+
+              </div>
             </section>
             
             
           </body>
+          <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js%22%3E"></script>
           <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
           <script src="assets/js/script.js"></script>
           </html>
