@@ -1,49 +1,31 @@
 // Create the script tag, set the appropriate attributes
 let script = document.createElement('script');
-script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&callback=initMap`;
+script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&libraries=places`;
 script.async = true;
 
-// Create the script tag for places autocomplete
-
 // JQuery Selectors
-let searchBarEl = $('#search-address');
+let searchEl = $('#search-address');
 
 // Global Variables
 let pos = {};
+
+navigator.geolocation.getCurrentPosition(position => {
+  pos = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+  };
+});
 
 // Event Handlers
 $(document).on('submit', function (event) {
   event.preventDefault();
 
-  console.log(searchBarEl.val().trim());
+  console.log(searchEl.val().trim());
 });
 
 // Functions
-function getLocation() {
-  navigator.geolocation.getCurrentPosition(position => {
-    pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-    };
-  });
-}
-
-function initAutoComplete() {
-  let autocomplete;
-
-  autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById('search-address'),
-    {
-      componentRestrictions: { country: 'us' },
-      types: ['address'],
-      fields: ['address_components', 'geometry', 'icon', 'name'],
-    }
-  );
-}
-
-// Attach callback function to the `window` object
-function initMap(pos) {
-  window.initMap = function () {
+function genMap() {
+  window.initMap = function (pos) {
     let options = {};
     if (pos === undefined) {
       options = {
@@ -62,9 +44,20 @@ function initMap(pos) {
       options
     );
   };
-
-  // Append the 'script' element to 'head'
-  document.head.appendChild(script);
 }
 
-function findPlace(searchVal) {}
+function initAutoComplete() {
+  let autocomplete;
+
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById('search-address'),
+    {
+      componentRestrictions: { country: 'us' },
+      types: ['address'],
+      fields: ['address_components', 'geometry', 'icon', 'name'],
+    }
+  );
+}
+
+// Append the 'script' element to 'head'
+document.head.appendChild(script);
