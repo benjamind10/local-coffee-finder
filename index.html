@@ -6,8 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="assets/css/style.css">
-  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css%22/%3E">
   <title>Local Coffee Finder</title>
 
 </head>
@@ -77,11 +78,7 @@
 
   <!--Map section-->
   <section>
-    <div class="map">
-      <h1>Map</h1>
-
-    </div>
-
+    <div id='map' style='width: 400px; height: 300px;'></div>
   </section>
 
   <!--Top cafes hyperlinks-->
@@ -110,10 +107,9 @@
 
 
 </body>
-<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js%22%3E"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type='text/javascript' src='./assets/js/config.js'></script>
-<script src="assets/js/script.js"></script>
+<script type='text/javascript' src='config.js' defer></script>
+<script src="assets/js/script.js" defer></script>
 
 </html>
