@@ -27,15 +27,17 @@ $(document).on('submit', function (event) {
 function genMap() {
   window.initMap = function (pos) {
     let options = {};
+    let zoom = 12;
+
     if (pos === undefined) {
       options = {
         center: { lat: 37.42778, lng: -77.62199 },
-        zoom: 12,
+        zoom: zoom,
       };
     } else {
       options = {
         center: { lat: pos.lat, lng: pos.lng },
-        zoom: 12,
+        zoom: zoom,
       };
     }
     // JS API is loaded and available
