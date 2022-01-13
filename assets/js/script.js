@@ -1,9 +1,21 @@
+// JQuery Selectors
+let searchBarEl = $('#search-address');
+
+// Global Variables
+navigator.geolocation.getCurrentPosition(position => {
+  const pos = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+  };
+  console.log(pos);
+});
+
 // Create the script tag, set the appropriate attributes
 let script = document.createElement('script');
 script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&callback=initMap`;
 script.async = true;
 
-// Attach your callback function to the `window` object
+// Attach callback function to the `window` object
 function initMap() {
   window.initMap = function () {
     let options = {
@@ -24,5 +36,5 @@ function initMap() {
 $(document).on('submit', function (event) {
   event.preventDefault();
 
-  console.log($('#search-address').val().trim());
+  console.log(searchBarEl.val().trim());
 });
