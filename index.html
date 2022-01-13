@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Local Coffee Finder</title>
 
@@ -68,12 +67,16 @@
   <!--Searchbar section-->
   <section>
     <div class="searchbar">
-      <input id="search" type="text">
-      <label for="search" class="active">Search Zipcode</label>
-      <button id="searchButton" type="submit" name="action">Submit
-      </button>
-      <div class="search-results"></div>
+      <form>
+        <div class="form-group input-group">
+          <input type="text" class="form-control" id="search-address" placeholder="Enter address">
+          <button class="btn btn-info" type="submit" id="search-address-button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
     </div>
+    </form>
+    <div class="search-results"></div>
   </section>
 
   <!--Map section-->
@@ -110,7 +113,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type='text/javascript' src='config.js'></script>
-<script type="text/javascript" src="./assets/js/jquery.googlemap.js"></script>
-<script src=" assets/js/script.js" defer></script>
+<script src=" assets/js/script.js"></script>
 
 </html>
