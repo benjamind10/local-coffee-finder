@@ -3,8 +3,13 @@ let script = document.createElement('script');
 script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&libraries=places`;
 script.async = true;
 
+// Append the 'script' element to 'head'
+document.head.appendChild(script);
+
 // JQuery Selectors
 let searchEl = $('#search-address');
+let input = document.getElementById('search-address');
+let places;
 
 // Global Variables
 let pos = {};
@@ -50,16 +55,19 @@ function genMap() {
 
 function initAutoComplete() {
   let autocomplete;
+  let input = document.getElementById('search-address');
 
-  autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById('search-address'),
-    {
-      componentRestrictions: { country: 'us' },
-      types: ['address'],
-      fields: ['address_components', 'geometry', 'icon', 'name'],
-    }
-  );
+  const options = {
+    componentRestrictions: { country: 'us' },
+    types: ['address'],
+    fields: ['address_components', 'geometry', 'icon', 'name'],
+  };
+
+  autocomplete = new google.maps.places.Autocomplete(input, options);
+
+  let searchBox = new google.maps.places.SearchBox(input);
+
+  searchBox.addListener('places_changed', () => {
+    places = searchBox.getPlaces();
+  });
 }
-
-// Append the 'script' element to 'head'
-document.head.appendChild(script);
