@@ -2,12 +2,12 @@
 let searchBarEl = $('#search-address');
 
 // Global Variables
+let pos = {};
 navigator.geolocation.getCurrentPosition(position => {
-  const pos = {
+  pos = {
     lat: position.coords.latitude,
     lng: position.coords.longitude,
   };
-  console.log(pos);
 });
 
 // Create the script tag, set the appropriate attributes
