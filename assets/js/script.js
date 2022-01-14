@@ -31,29 +31,31 @@ $(document).on('submit', function (event) {
 // Functions
 function genMap() {
   window.initMap = function (pos) {
-    let options = {};
-    let zoom = 12;
-
     if (!pos) {
-      options = {
-        center: { lat: 37.42778, lng: -77.62199 },
-        zoom: zoom,
-      };
-    } else {
-      options = {
-        center: { lat: pos.lat, lng: pos.lng },
-        zoom: zoom,
-      };
+      pos.lat = 37.42778;
+      pos.lng = -77.62199;
     }
+
+    const options = {
+      center: { lat: pos.lat, lng: pos.lng },
+      zoom: 12,
+    };
+
     // JS API is loaded and available
     map = new google.maps.Map(
       document.getElementById('map'),
       options
     );
 
+    // Marker
     const marker = new google.maps.Marker({
       position: { lat: options.center.lat, lng: options.center.lng },
       map: map,
+    });
+
+    // InfoWindow
+    const detailWindow = new google.maps.InfoWindow({
+      content: `<h2></h2>`,
     });
   };
 }
@@ -82,4 +84,19 @@ function initAutoComplete() {
       tmp = places;
     }
   });
+}
+
+function nearbySearch() {
+  const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${pos.lat}%2C${pos.lng}&radius=2000&region=us&type=cafe,bakery&key=${config.G_KEY}`;
+
+  $.ajax({
+    url: queryUrl,
+    method: 'GET',
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (response) {
+      console.log(response);
+    });
 }
