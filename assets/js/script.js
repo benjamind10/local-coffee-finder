@@ -1,6 +1,6 @@
 // Create the script tag, set the appropriate attributes
 let script = document.createElement('script');
-script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&libraries=places`;
+script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&callback=initMap&libraries=places`;
 script.async = true;
 
 // Append the 'script' element to 'head'
@@ -34,7 +34,7 @@ function genMap() {
     let options = {};
     let zoom = 12;
 
-    if (pos === undefined) {
+    if (!pos) {
       options = {
         center: { lat: 37.42778, lng: -77.62199 },
         zoom: zoom,
@@ -50,6 +50,11 @@ function genMap() {
       document.getElementById('map'),
       options
     );
+
+    const marker = new google.maps.Marker({
+      position: { lat: options.center.lat, lng: options.center.lng },
+      map: map,
+    });
   };
 }
 
