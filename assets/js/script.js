@@ -8,11 +8,11 @@ document.head.appendChild(script);
 
 // JQuery Selectors
 let searchEl = $('#search-address');
-let input = document.getElementById('search-address');
-let places;
 
 // Global Variables
+let places;
 let pos = {};
+let tmp;
 
 navigator.geolocation.getCurrentPosition(position => {
   pos = {
@@ -65,9 +65,16 @@ function initAutoComplete() {
 
   autocomplete = new google.maps.places.Autocomplete(input, options);
 
-  let searchBox = new google.maps.places.SearchBox(input);
+  autocomplete.addListener('place_changed', () => {
+    places = autocomplete.getPlace();
 
-  searchBox.addListener('places_changed', () => {
-    places = searchBox.getPlaces();
+    if (!places.geometry || !places.geometry.location) {
+      // User entered the name of a Place that was not suggested and
+      // pressed the Enter key, or the Place Details request failed.
+      alert("No details available for input: '" + places.name + "'");
+      return;
+    } else {
+      tmp = places;
+    }
   });
 }
