@@ -19,10 +19,11 @@ function initMap() {
   const locationButton = document.createElement('button');
 
   locationButton.textContent = 'Go To  Your Location';
-  locationButton.classList.add('custom-map-control-button');
+  locationButton.classList.add('btn');
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(
     locationButton
   );
+
   locationButton.addEventListener('click', () => {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -39,12 +40,12 @@ function initMap() {
           map.setCenter(pos);
         },
         () => {
-          handleLocationError(true, infoWindow, map.getCenter());
+          handleError(true, infoWindow, map.getCenter());
         }
       );
     } else {
       // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
+      handleError(false, infoWindow, map.getCenter());
     }
   });
 
@@ -75,10 +76,10 @@ function initMap() {
   });
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+function handleError(hasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
-    browserHasGeolocation
+    hasGeolocation
       ? 'Error: The Geolocation service failed.'
       : "Error: Your browser doesn't support geolocation."
   );
