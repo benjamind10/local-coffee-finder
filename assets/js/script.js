@@ -6,11 +6,14 @@ script.async = true;
 // Global Variables
 let map, infoWindow;
 const center = { lat: 37.42778, lng: -77.62199 };
-let tmp = {};
+
+$(document).on('submit', function (event) {
+  event.preventDefault();
+});
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
+    center,
     zoom: 12,
   });
 
@@ -35,9 +38,9 @@ function initMap() {
           };
 
           infoWindow.setPosition(pos);
-          infoWindow.setContent('Location found.');
           infoWindow.open(map);
           map.setCenter(pos);
+          nearbySearch(pos);
         },
         () => {
           handleError(true, infoWindow, map.getCenter());
@@ -105,13 +108,14 @@ function createMarker(place) {
       map,
       shouldFocus: false,
     });
+    // showInfo()
   });
 }
 
 function nearbySearch(location) {
   if ((tmp = {})) tmp = center;
 
-  const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe,bakery&key=${config.G_KEY}`;
+  const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe&key=${config.G_KEY}`;
 
   $.ajax({
     url: queryUrl,
@@ -124,8 +128,25 @@ function nearbySearch(location) {
         createMarker(response.results[i]);
       }
     })
-    .catch(function (response) {
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+function getPlaceInfo(place_id) {
+  if (!place_id) return;
+
+  const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number&key=${config.G_KEY}`;
+
+  $.ajax({
+    url: queryUrl,
+    method: 'GET',
+  })
+    .then(function (response) {
       console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
 }
 
