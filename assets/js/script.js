@@ -73,7 +73,11 @@ function initMap() {
     center.lat = place.lat();
     center.lng = place.lng();
     map.setCenter(center);
+
+    nearbySearch(center);
   });
+
+  nearbySearch(center);
 }
 
 function handleError(hasGeolocation, infoWindow, pos) {
@@ -86,17 +90,39 @@ function handleError(hasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-function nearbySearch() {
+function createMarker(place) {
+  if (!place.geometry || !place.geometry.location) return;
+
+  const marker = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+
+  google.maps.event.addListener(marker, 'click', () => {
+    infoWindow.setContent(place.name || '');
+    infoWindow.open({
+      anchor: marker,
+      map,
+      shouldFocus: false,
+    });
+  });
+}
+
+function nearbySearch(location) {
   if ((tmp = {})) tmp = center;
 
-  const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${tmp.lat}%2C${tmp.lng}&radius=2000&region=us&type=cafe,bakery&key=${config.G_KEY}`;
+  const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe,bakery&key=${config.G_KEY}`;
 
   $.ajax({
     url: queryUrl,
     method: 'GET',
   })
     .then(function (response) {
-      console.log(response);
+      console.log(response.results);
+
+      for (let i = 1; i < response.results.length - 1; i++) {
+        createMarker(response.results[i]);
+      }
     })
     .catch(function (response) {
       console.log(response);
