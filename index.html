@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Odor+Mean+Chey&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css%22/%3E">
   <title>Local Coffee Finder</title>
 
 </head>
@@ -17,7 +17,6 @@
   <header>
     <h1>
       <!--Navigation bar-->
-      <!-- TO DO ADD CLASSES -->
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
 
@@ -69,39 +68,29 @@
   <!--Searchbar section-->
   <section class="columns is-centered has-text-centered my-3">
     <div class="searchbar column is-half">
-      <input id="search" type="text">
-      <label for="search" class="active">Search Zipcode</label>
-      <button id="searchButton" type="submit" name="action">Submit
-      </button>
-      <div class="search-results"></div>
+      <form>
+        <div class="form-group input-group">
+          <input type="text" class="form-control" id="search-address" placeholder="Enter address">
+          <!-- <button class="btn btn-info" type="submit" id="search-address-button">
+            <i class="fa fa-search"></i>
+          </button> -->
+        </div>
     </div>
+    </form>
+    <div class="search-results"></div>
   </section>
 
   <!--Map section-->
-  <section class="columns is-centered has-text-centered my-3">
-    <div class="map coulmn is-half">
-      <h1 class="mb-3">Map</h1>
-      <div id="map"></div>
-
+  <section class="columns is-centered">
+    <div class="column is-half" id='map'></div>
+    <div id="test"></div>
   </section>
 
   <!--Top cafes hyperlinks-->
   <section class="columns is-centered has-text-centered my-3">
     <div class="topcafes column is-half">
-      <h1 class="mb-3">Top Cafes</h1>
+      <h1>Top Cafes</h1>
 
-      <div class="columns">
-        <div class="column"><img src="./assets/Images/pic1.jpeg" alt="" id="pic1"></div>
-        <div class="column"><img src="./assets/Images/pic2.jpeg" alt="" id="pic2"></div>  
-        <div class="column"><img src="./assets/Images/pic3.jpeg" alt="" id="pic3"></div>
-      </div>  
-
-        <div class="columns"> 
-          <div class="column"><img src="./assets/Images/pic4.jpeg" alt=""></div>
-          <div class="column"><img src="./assets/Images/pic 5.jpeg" alt=""></div>
-          <div class="column"><img src="./assets/Images/pic 6.jpeg" alt=""></div>          
-        </div>
-    </div>  
     </div>
   </section>
 
@@ -127,9 +116,9 @@
 
 
 </body>
-<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js%22%3E"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="assets/js/script.js"></script>
+<script type='text/javascript' src='./assets/js/config.js'></script>
+<script src=" assets/js/script.js"></script>
 
 </html>
