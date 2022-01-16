@@ -2,116 +2,93 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet"
-    href="assets/css/style.css">
-    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css%22/%3E">
-    <title>Local Coffee Finder</title>
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Local Coffe Finder</title>
 </head>
+
 <body>
-    <header>
-        <h1>
-          <!--Navigation bar-->
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-              
-                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
-                </div>
-              
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-start">
-                    <a class="navbar-item">
-                      Find A Local Coffee Shop
-                    </a>
-              
-                    <a class="navbar-item">
-                      Map
-                    </a>
+  <navbar>
+    <div class="ui brown inverted secondary menu">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Recipes
+      </a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </navbar>
+  <br>
 
-                    <a class="navbar-item">
-                        Popular Recipes
-                      </a>
-              
-                    <div class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">
-                        More
-                      </a>
-              
-                      <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                          About
-                        </a>
-                        <a class="navbar-item">
-                          Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                          Report an issue
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                 </div>
-              </nav>
-            </header>
+  <section class="segment">
+    <div class="ui two column centered grid">
+      <div class="ui fluid" id="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12674.704231580125!2d-77.61924415!3d37.421131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1642368620989!5m2!1sen!2sus"
+          width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
 
-            <!--Searchbar section-->
-            <section>
-              <div class="searchbar">
-                <input id="search" type="text">
-                <label for="search" class="active">Search Zipcode</label>
-                <button id="searchButton" type="submit"
-                    name="action">Submit
-                </button>
-                <div class="search-results"></div>
-              </div>
-            </section>
+  <div class="ui divider"></div>
 
-            <!--Map section-->
-            <section>
-              <div class="map">
-                <h1>Map</h1>
+  <section class="ui centered grid">
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+          <div class="header">
+            Elliot Fu
+          </div>
+          <div class="meta">
+            Friends of Veronika
+          </div>
+          <div class="description">
+            Elliot requested permission to view your contact details
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">Approve</div>
+            <div class="ui basic red button">Decline</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <img class="right floated mini ui image" src="/images/avatar/large/jenny.jpg">
+          <div class="header">
+            Jenny Hess
+          </div>
+          <div class="meta">
+            New Member
+          </div>
+          <div class="description">
+            Jenny wants to add you to the group <b>best friends</b>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">Approve</div>
+            <div class="ui basic red button">Decline</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              </div>
-          
-            </section>
+  <script src="./assets/js/script.js"></script>
+</body>
 
-            <!--Top cafes hyperlinks-->
-            <section>
-              <div class="topcafes">
-                <h1>Top Cafes</h1>
-
-              </div>
-            </section>
-
-            <!--About-->
-            <section>
-              <div class="about">
-                
-              </div>
-            </section>
-            
-            <!--Contact Us-->
-            <section>
-              <div class="contact">
-                <h1>Contact Us!</h1>
-              </div>
-            </section>
-
-            
-            
-            
-          </body>
-          <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js%22%3E"></script>
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-          <script src="assets/js/script.js"></script>
-          </html>
+</html>
