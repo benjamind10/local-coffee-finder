@@ -1,5 +1,5 @@
 // Create the script tag, set the appropriate attributes
-var script = document.createElement('script');
+let script = document.createElement('script');
 script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&callback=initMap&libraries=places`;
 script.async = true;
 
@@ -140,7 +140,7 @@ function getPlaceInfo(placesArr) {
   let placesInfoArr = [];
 
   for (let i = 0; i < placesArr.length; i++) {
-    const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placesArr[i]}&fields=name%2Crating%2Cformatted_phone_number&key=${config.G_KEY}`;
+    const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placesArr[i]}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address&key=${config.G_KEY}`;
 
     $.ajax({
       url: queryUrl,
