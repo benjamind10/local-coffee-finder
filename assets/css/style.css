@@ -1,0 +1,13 @@
+.title {
+    text-align:left;
+}
+
+.navbar {
+    background-color: turquoise;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.navbar-item img {
+    max-height: 14rem;
+}

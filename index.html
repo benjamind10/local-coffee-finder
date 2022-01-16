@@ -2,117 +2,199 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet"
-    href="assets/css/style.css">
-    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css%22/%3E">
-    <title>Local Coffee Finder</title>
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css%22/%3E">
+  <title>Local Coffee Finder</title>
 </head>
+
 <body>
-    <header>
-        <h1>
-          <!--Navigation bar-->
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-              
-                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
-                </div>
-              
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-start">
-                    <a class="navbar-item">
-                      Find A Local Coffee Shop
-                    </a>
-              
-                    <a class="navbar-item">
-                      Map
-                    </a>
+  <header>
 
-                    <a class="navbar-item">
-                        Popular Recipes
-                      </a>
-              
-                    <div class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">
-                        More
-                      </a>
-              
-                      <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                          About
-                        </a>
-                        <a class="navbar-item">
-                          Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                          Report an issue
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                 </div>
-              </nav>
-            </header>
+    <!--Navigation bar-->
 
-            <!--Searchbar section-->
-            <section>
-              <div class="searchbar">
-                <input id="search" type="text">
-                <label for="search" class="active">Search Zipcode</label>
-                <button id="searchButton" type="submit"
-                    name="action">Submit
-                </button>
-                <div class="search-results"></div>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <!--Added "Navbar-item" to Navbar to create a container for the brand logo created-->
+      <div class="navbar-brand">
+        <a href="#" class="navbar-item">
+          <img src="images/coffee-finder-logo.png" alt="Local 
+          Coffee Finder" width="126" height="80">
+        </a>
+
+        <a role="class=" navbar-burger" aria-label="menu" aria-expanded="false" data-target="nabarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      </section class="section is-large">
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Find A Local Coffee Shop
+          </a>
+
+          <a class="navbar-item">
+            Map
+          </a>
+
+          <a class="navbar-item">
+            Popular Recipes
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <!--Added "divider" to Navbar to separate navbar items into their own containers-->
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                About
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <!--Searchbar section-->
+  <section>
+    <div class="searchbar">
+      <input id="search" type="text">
+      <label for="search" class="active">Search Zipcode</label>
+      <!--Added "is-primary" to button using Bulma to style button's color & appearance-->
+      <button class="button is-primary" id="searchButton" type="submit" name="action">Submit
+      </button>
+      <div class="search-results"></div>
+    </div>
+  </section>
+
+  <!--Map section-->
+  <level>
+    <section>
+      <div class="container.map">
+        <h1>Map</h1>
+
+
+      </div>
+
+    </section>
+  </level>
+
+
+  <!--Top cafes hyperlinks-->
+  <div class="topcafes">
+    <h1>Check Out Some Local Cafes!</h1>
+
+
+  </div>
+
+  <div class="card">
+    <div class="card-image" <figure class="image is-4by3">
+      <img src="https://bulma.io/images/placeholder/1280X960.png" alt="Placeholder image">
+      </figure>
+    </div>
+  </div>
+
+  <!--<div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                <figure class="image is-4 8X48"
+                <a href="#"></a> <a href="#"></a>
               </div>
-            </section>
+            </div>
+          </div>        
+                          <!-- Add content or other tiles -->
 
-            <!--Map section-->
-            <section>
-              <div class="map">
-                <h1>Map</h1>
 
-              </div>
-          
-            </section>
+  </div>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://bulma.io/images/placeholders/1280X960/png" <div class="card-title">
+        <div class="card-content">
+          Blanchards
+        </div>
+        <p>words describing this coffee shop</p>
+    </div>
+  </div>
+  </div>
 
-            <!--Top cafes hyperlinks-->
-            <section>
-              <div class="topcafes">
-                <h1>Top Cafes</h1>
+  </div>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://bulma.io/images/placeholders/1280X960/png" <div class="card-title" <div class="card-content">
+        <div class="content">
+          Lamplighter
+        </div>
+    </div>
+    <p>words describing this coffee shop</p>
+  </div>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://bulma.io/images/placeholders/1280X960/png" <div>
+    </div>
+    <p>words describing this coffee shop</p>
+  </div>
+  </div>
+  <p> Ironclad
+  </p>
+  <div>
+    <p>words describing this coffee shop</p>
+  </div>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://bulma.io/images/placeholders/1280X960/png" <div>
+    </div>
+    <p>words describing this coffee shop</p>
+  </div>
+  </div>
+  </section>
 
-              </div>
-            </section>
 
-            <!--About-->
-            <section>
-              <div class="about">
-                <h1>About</h1>
+  <!--About-->
+  <!--Added Footer class-->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      </p>
+    </div>
+  </footer>
+  <section>
+    <div class="about">
 
-              </div>
-            </section>
-            
-            <!--Contact Us-->
-            <section>
-              <div class="contact">
-                <h1>Contact Us!</h1>
-              </div>
-            </section>
+    </div>
+  </section>
+  <section>
+    <div class="contact">
+      <h1>Contact Us!</h1>
+    </div>
+  </section>
+  </footer>
 
-            
-            
-            
-          </body>
-          <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js%22%3E"></script>
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-          <script src="assets/js/script.js"></script>
-          </html>
+
+
+
+</body>
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js%22%3E"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="assets/js/script.js"></script>
+
+</html>
