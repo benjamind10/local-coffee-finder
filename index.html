@@ -2,117 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet"
-    href="assets/css/style.css">
-    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css%22/%3E">
-    <title>Local Coffee Finder</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Local Coffee Finder</title>
 
 </head>
+
 <body>
-    <header>
-        <h1>
-          <!--Navigation bar-->
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-              
-                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
-                </div>
-              
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-start">
-                    <a class="navbar-item">
-                      Find A Local Coffee Shop
-                    </a>
-              
-                    <a class="navbar-item">
-                      Map
-                    </a>
+  <header>
+    <h1>
+      <!--Navigation bar-->
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
 
-                    <a class="navbar-item">
-                        Popular Recipes
-                      </a>
-              
-                    <div class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">
-                        More
-                      </a>
-              
-                      <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                          About
-                        </a>
-                        <a class="navbar-item">
-                          Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                          Report an issue
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                 </div>
-              </nav>
-            </header>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+            data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
 
-            <!--Searchbar section-->
-            <section>
-              <div class="searchbar">
-                <input id="search" type="text">
-                <label for="search" class="active">Search Zipcode</label>
-                <button id="searchButton" type="submit"
-                    name="action">Submit
-                </button>
-                <div class="search-results"></div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Find A Local Coffee Shop
+            </a>
+
+            <a class="navbar-item">
+              Map
+            </a>
+
+            <a class="navbar-item">
+              Popular Recipes
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
               </div>
-            </section>
+            </div>
+          </div>
+        </div>
+      </nav>
+  </header>
 
-            <!--Map section-->
-            <section>
-              <div class="map">
-                <h1>Map</h1>
+  <!--Searchbar section-->
+  <section>
+    <div class="searchbar">
+      <form>
+        <div class="form-group input-group">
+          <input type="text" class="form-control" id="search-address" placeholder="Enter address">
+          <!-- <button class="btn btn-info" type="submit" id="search-address-button">
+            <i class="fa fa-search"></i>
+          </button> -->
+        </div>
+    </div>
+    </form>
+    <div class="search-results"></div>
+  </section>
 
-              </div>
-          
-            </section>
+  <!--Map section-->
+  <section>
+    <div id='map'></div>
+    <div id="test"></div>
+  </section>
 
-            <!--Top cafes hyperlinks-->
-            <section>
-              <div class="topcafes">
-                <h1>Top Cafes</h1>
+  <!--Top cafes hyperlinks-->
+  <section>
+    <div class="topcafes">
+      <h1>Top Cafes</h1>
 
-              </div>
-            </section>
+    </div>
+  </section>
 
-            <!--About-->
-            <section>
-              <div class="about">
-                <h1>About</h1>
+  <!--About-->
+  <section>
+    <div class="about">
 
-              </div>
-            </section>
-            
-            <!--Contact Us-->
-            <section>
-              <div class="contact">
-                <h1>Contact Us!</h1>
-              </div>
-            </section>
+    </div>
+  </section>
 
-            
-            
-            
-          </body>
-          <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js%22%3E"></script>
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-          <script src="assets/js/script.js"></script>
-          </html>
+  <!--Contact Us-->
+  <section>
+    <div class="contact">
+      <h1>Contact Us!</h1>
+    </div>
+  </section>
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type='text/javascript' src='config.js'></script>
+<script src=" assets/js/script.js"></script>
+
+</html>
