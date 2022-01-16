@@ -113,7 +113,8 @@ function createMarker(place) {
 }
 
 function nearbySearch(location) {
-  if ((tmp = {})) tmp = center;
+  // if ((tmp = {})) tmp = center;
+  const placesArr = [];
 
   const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe&key=${config.G_KEY}`;
 
@@ -122,32 +123,37 @@ function nearbySearch(location) {
     method: 'GET',
   })
     .then(function (response) {
-      console.log(response.results);
-
-      for (let i = 1; i < response.results.length - 1; i++) {
+      for (let i = 0; i < response.results.length; i++) {
         createMarker(response.results[i]);
+        placesArr.push(response.results[i].place_id);
       }
+      getPlaceInfo(placesArr);
     })
     .catch(function (error) {
       console.log(error);
     });
+  console.log(placesArr);
 }
 
-function getPlaceInfo(place_id) {
-  if (!place_id) return;
+function getPlaceInfo(placesArr) {
+  if (placesArr.length === 0) return;
+  let placesInfoArr = [];
 
-  const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number&key=${config.G_KEY}`;
+  for (let i = 0; i < placesArr.length; i++) {
+    const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placesArr[i]}&fields=name%2Crating%2Cformatted_phone_number&key=${config.G_KEY}`;
 
-  $.ajax({
-    url: queryUrl,
-    method: 'GET',
-  })
-    .then(function (response) {
-      console.log(response);
+    $.ajax({
+      url: queryUrl,
+      method: 'GET',
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(function (response) {
+        placesInfoArr.push(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  console.log(placesInfoArr);
 }
 
 // Append the 'script' element to 'head'
