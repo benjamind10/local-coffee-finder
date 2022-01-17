@@ -164,12 +164,13 @@ function getPlaceInfo(placesArr) {
     })
       .then(function (response) {
         placesInfoArr.push(response);
+        localStorage.setItem('places', JSON.stringify(placesInfoArr));
       })
       .catch(function (error) {
         console.log(error);
       });
   }
-  console.log(placesInfoArr);
+  return placesInfoArr;
 }
 
 // Append the 'script' element to 'head'
