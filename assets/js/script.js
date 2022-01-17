@@ -181,8 +181,11 @@ function getPlaceInfo(placesArr) {
 }
 
 function makeCards(arr) {
-  console.log(arr);
-  for (let i = 0; i < 3; i++) {
+  let len = 3;
+
+  if (arr.length < 3) len = arr.length;
+
+  for (let i = 0; i < len; i++) {
     let card = $("<div class='card'>");
     let imgDiv = $("<div class='image'>");
     let imageEl = $('<img>');
@@ -206,10 +209,10 @@ function makeCards(arr) {
     cardBg.append(shopName);
     card.append(descriptionDiv);
 
-    ratingP.text('Rating: ' + arr[i].result.rating);
-    address.text('Address: ' + arr[i].result.formatted_address);
+    ratingP.text(`Rating: ${arr[i].result.rating}`);
+    address.text(`Address: ${arr[i].result.formatted_address}`);
     pNumber.text(
-      'Phone Number: ' + arr[i].result.formatted_phone_number
+      `Phone Number: ${arr[i].result.formatted_phone_number}`
     );
 
     cardBg.append(ratingP);
