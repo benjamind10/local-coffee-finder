@@ -20,3 +20,7 @@ body {
   background-attachment: fixed;
   background-position: 80%;
 }
+
+.hidden {
+  display: none;
+}

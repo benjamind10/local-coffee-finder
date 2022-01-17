@@ -170,7 +170,7 @@ function getPlaceInfo(placesArr) {
         console.log(error);
       });
   }
-  return placesInfoArr;
+  console.log(placesInfoArr);
 }
 
 // Append the 'script' element to 'head'
