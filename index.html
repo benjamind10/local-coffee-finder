@@ -7,85 +7,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Local Coffe Finder</title>
+  <title>Local Coffee Finder</title>
 </head>
 
 <body>
+  <!--Nav bar start-->
   <navbar>
     <div class="ui brown inverted secondary menu">
-      <a class="active item">
+      <a href="/index.html" class="active item">
         Home
       </a>
-      <a href="/recipes.html" class="item">
+      <a href="recipes.html" class="item">
         Recipes
       </a>
-      <div class="right menu">
-        <div class="item">
-          <div class="ui icon input">
-            <input id="search-address" type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-        </div>
-      </div>
+    </div>
     </div>
   </navbar>
   <br>
+  <!--Nav bar end-->
 
+  <!--Search bar-->
+  <section class="ui centered grid">
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt" id="search-address" type="text" placeholder="Search...">
+        <i class="search icon"></i>
+      </div>
+    </div>
+  </section>
+  <!--Search bar end-->
+
+  <!--Map section start-->
   <section class="segment">
     <div class="ui two column centered grid">
       <div class="ui fluid" id="map">
       </div>
     </div>
   </section>
+  <!--Map section end-->
 
 
-  <section class="segment">
-    <div class="ui centered grid">
-      <div class="ui cards">
-        <div class="card">
-          <div class="content">
-            <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
-            <div class="header">
-              Elliot Fu
-            </div>
-            <div class="meta">
-              Friends of Veronika
-            </div>
-            <div class="description">
-              Elliot requested permission to view your contact details
-            </div>
-          </div>
-          <div class="extra content">
-            <div class="ui two buttons">
-              <div class="ui basic green button">Approve</div>
-              <div class="ui basic red button">Decline</div>
-            </div>
-          </div>
+
+  <!--Cards section start-->
+  <section class="ui centered grid">
+    <div id="cards-section" class="ui link cards">
+    </div>
+  </section>
+  <!--Cards section end-->
+
+  <div class="ui divider"></div>
+
+  <!--Footer section start-->
+
+  <section class="ui centered grid">
+    <div class="ui horizontal list">
+      <div class="item">
+        <img class="ui mini circular image" src="/images/avatar2/small/molly.png">
+        <div class="content">
+          <div class="ui sub header">Molly</div>
+          Coordinator
         </div>
-        <div class="card">
-          <div class="content">
-            <img class="right floated mini ui image" src="/images/avatar/large/jenny.jpg">
-            <div class="header">
-              Jenny Hess
-            </div>
-            <div class="meta">
-              New Member
-            </div>
-            <div class="description">
-              Jenny wants to add you to the group <b>best friends</b>
-            </div>
-          </div>
-          <div class="extra content">
-            <div class="ui two buttons">
-              <div class="ui basic green button">Approve</div>
-              <div class="ui basic red button">Decline</div>
-            </div>
-          </div>
+      </div>
+      <div class="item">
+        <img class="ui mini circular image" src="/images/avatar2/small/elyse.png">
+        <div class="content">
+          <div class="ui sub header">Elyse</div>
+          Developer
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/avatar2/small/eve.png" class="ui mini circular image">
+        <div class="content">
+          <div class="ui sub header">Eve</div>
+          Project Manager
         </div>
       </div>
     </div>
   </section>
 
+  <!--Linking JS file to HTML-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type='text/javascript' src='config.js'></script>

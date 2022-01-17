@@ -24,7 +24,7 @@ function getRecipe() {
 }
 
 function genRandomCoffee() {
-  let num = Math.floor(Math.random() * 24);
+  let num = Math.floor(Math.random() * data.length);
   console.log(num);
 
   recipeName.text(data[num].title);
