@@ -1,3 +1,6 @@
+// Jquery Selectors
+let cardsEl = $('#cards-section');
+
 // Create the script tag, set the appropriate attributes
 let script = document.createElement('script');
 script.src = `https://maps.googleapis.com/maps/api/js?key=${config.G_KEY}&callback=initMap&libraries=places`;
@@ -5,6 +8,7 @@ script.async = true;
 
 // Global Variables
 let map, infoWindow;
+let tmp = [];
 const center = { lat: 37.42778, lng: -77.62199 };
 
 $(document).on('submit', function (event) {
@@ -171,6 +175,45 @@ function getPlaceInfo(placesArr) {
       });
   }
   console.log(placesInfoArr);
+  tmp = placesInfoArr;
+}
+
+function makeCards(arr) {
+  console.log(arr);
+  for (let i = 0; i < 3; i++) {
+    let card = $("<div class='card'>");
+    let imgDiv = $("<div class='image'>");
+    let imageEl = $('<img>');
+    let cardBg = $("<div class='header' id='cardbg'>");
+    let shopName = $("<div class='header'>");
+    let descriptionDiv = $("<div class='description'>");
+
+    let ratingP = $("<p id='rating'>");
+    let address = $("<p id='address'>");
+    let pNumber = $("<p id='number'>");
+
+    cardsEl.append(card);
+    card.append(imgDiv);
+    imgDiv.append(imageEl);
+
+    imageEl.attr('src', './assets/images/dummyshop.jpg');
+    imageEl.attr('alt', 'coffee shop front');
+    card.append(cardBg);
+
+    shopName.text(arr[i].result.name);
+    cardBg.append(shopName);
+    card.append(descriptionDiv);
+
+    ratingP.text('Rating: ' + arr[i].result.rating);
+    address.text('Address: ' + arr[i].result.formatted_address);
+    pNumber.text(
+      'Phone Number: ' + arr[i].result.formatted_phone_number
+    );
+
+    cardBg.append(ratingP);
+    cardBg.append(address);
+    cardBg.append(pNumber);
+  }
 }
 
 // Append the 'script' element to 'head'
