@@ -1,0 +1,33 @@
+/* body {
+    font-family: 'Odor Mean Chey', serif;
+} */
+
+img {
+    height: 250px;
+    width: 250px;
+  }
+  /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+  #map {
+    height: 500px;
+    width: 700px;
+  }
+  
+  body {
+    background-image: url("..//img/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+  }
+
+  h2 {
+      color: white;
+  }
+
+  #coffeeCard {
+      margin: 50px;
+  }
+
+  #search {
+    margin: 25px;
+}
