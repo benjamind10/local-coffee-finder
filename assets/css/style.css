@@ -20,11 +20,10 @@ body {
   opacity: 0.5;
 }
 
-#test {
-  border-radius: 0%;
-  border: 0px solid rgb(241, 0, 0);
-}
-
 #test2 {
   background-color: chocolate;
+}
+
+iframe {
+  border: 2px solid chocolate;
 }
