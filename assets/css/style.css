@@ -34,3 +34,37 @@ iframe {
   margin: 15px;
   padding: 10px;
 }
+
+#about {
+  position: absolute;
+  width: 25%;
+  text-align: right;
+  margin: 3.5%;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.2;
+  text-shadow: 1px 1px #000;
+}
+
+#aboutform {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+#title {
+  color: chocolate;
+  text-align: center;
+  font-size: 85px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-shadow: 2px 2px #000;
+}
+
+#feedback {
+  color: chocolate;
+  background-color: whitesmoke;
+}
+
+#footer {
+  background-color: chocolate;
+}
