@@ -17,6 +17,22 @@ function initMap() {
     zoom: 12,
   });
 
+  let dragMarker = new google.maps.Marker({
+    position: center,
+    map,
+    draggable: true,
+    title: 'Drag Me!',
+    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+  });
+
+  dragMarker.addListener('dragend', () => {
+    let getPos = dragMarker.getPosition();
+
+    const pos = { lat: getPos.lat(), lng: getPos.lng() };
+
+    nearbySearch(pos);
+  });
+
   infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement('button');
@@ -38,8 +54,8 @@ function initMap() {
           };
 
           infoWindow.setPosition(pos);
-          infoWindow.open(map);
           map.setCenter(pos);
+          dragMarker.setPosition(pos);
           nearbySearch(pos);
         },
         () => {
@@ -76,7 +92,7 @@ function initMap() {
     center.lat = place.lat();
     center.lng = place.lng();
     map.setCenter(center);
-
+    dragMarker.setPosition(center);
     nearbySearch(center);
   });
 
@@ -148,6 +164,7 @@ function getPlaceInfo(placesArr) {
     })
       .then(function (response) {
         placesInfoArr.push(response);
+        localStorage.setItem('places', JSON.stringify(placesInfoArr));
       })
       .catch(function (error) {
         console.log(error);
