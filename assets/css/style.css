@@ -2,10 +2,6 @@
     font-family: 'Odor Mean Chey', serif;
 } */
 
-img {
-  height: 250px;
-  width: 250px;
-}
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 #map {
@@ -21,6 +17,21 @@ body {
   background-position: 80%;
 }
 
-.hidden {
-  display: none;
+#shoppic {
+  opacity: 0.5;
+}
+
+#cardbg {
+  background-color: chocolate;
+}
+
+iframe {
+  border: 2px solid chocolate;
+  border-radius: 1%;
+}
+
+#search-address {
+  width: 300px;
+  margin: 15px;
+  padding: 10px;
 }

@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Local Coffe Finder</title>
+  <title>Local Coffee Finder</title>
 </head>
 
 <body>
+  <!--Nav bar start-->
   <navbar>
     <div class="ui brown inverted secondary menu">
       <a href="/index.html" class="active item">
@@ -19,36 +20,42 @@
       <a href="recipes.html" class="item">
         Recipes
       </a>
-      <a href="search.html" class="item">
-        Recipes
-      </a>
-      <div class="right menu">
-        <div class="item">
-          <div class="ui icon input">
-            <input id="search-address" type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-        </div>
-      </div>
+    </div>
     </div>
   </navbar>
   <br>
+  <!--Nav bar end-->
 
+  <!--Search bar-->
+  <section class="ui centered grid">
+    <div class="ui search">
+      <div class="ui icon input" id="search-address">
+        <input class="prompt" type="text" placeholder="Search...">
+        <i class="search icon"></i>
+      </div>
+    </div>
+  </section>
+  <!--Search bar end-->
+
+  <!--Map section start-->
   <section class="segment">
     <div class="ui two column centered grid">
       <div class="ui fluid" id="map">
       </div>
     </div>
   </section>
+  <!--Map section end-->
 
 
-  <section class="segment">
+
+  <!--Cards section start-->
+  <section class="ui centered grid">
     <div class="ui link cards">
-      <div class="card" id="cardborder">
+      <div class="card" id="card1">
         <div class="image">
           <img src="/assets/images/dummyshop.jpg" id="shoppic" alt="picture of shop">
         </div>
-        <div class="content" id="test2">
+        <div class="content" id="cardbg">
           <div class="header">Coffee shop</div>
           <div class="description">
             <p id="rating">Rating</p>
@@ -57,12 +64,72 @@
           </div>
         </div>
       </div>
+
+      <div class="card" id="card2">
+        <div class="image">
+          <img src="/assets/images/dummyshop.jpg" id="shoppic" alt="picture of shop">
+        </div>
+        <div class="content" id="cardbg">
+          <div class="header">Coffee Shop</div>
+          <div class="description">
+            <p id="rating">Rating</p>
+            <p id="address">Address</p>
+            <p id="number">Number</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" id="card3">
+        <div class="image">
+          <img src="/assets/images/dummyshop.jpg" id="shoppic" alt="picture of shop">
+        </div>
+        <div class="content" id="cardbg">
+          <div class="header">Coffee Shop</div>
+          <div class="description">
+            <p id="rating">Rating</p>
+            <p id="address">Address</p>
+            <p id="number">Number</p>
+          </div>
+        </div>
+
+        </span>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!--Cards section end-->
+
+  <div class="ui divider"></div>
+
+  <!--Footer section start-->
+
+  <section class="ui centered grid">
+    <div class="ui horizontal list">
+      <div class="item">
+        <img class="ui mini circular image" src="/images/avatar2/small/molly.png">
+        <div class="content">
+          <div class="ui sub header">Molly</div>
+          Coordinator
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui mini circular image" src="/images/avatar2/small/elyse.png">
+        <div class="content">
+          <div class="ui sub header">Elyse</div>
+          Developer
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/avatar2/small/eve.png" class="ui mini circular image">
+        <div class="content">
+          <div class="ui sub header">Eve</div>
+          Project Manager
+        </div>
+      </div>
+    </div>
   </section>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script type='text/javascript' src='config.js'></script>
-  <script src=" assets/js/script.js"></script>
+  <!--Linking JS file to HTML-->
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
