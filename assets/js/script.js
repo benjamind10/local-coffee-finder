@@ -174,8 +174,10 @@ function getPlaceInfo(placesArr) {
         console.log(error);
       });
   }
+
   console.log(placesInfoArr);
   tmp = placesInfoArr;
+  test();
 }
 
 function makeCards(arr) {
@@ -214,6 +216,13 @@ function makeCards(arr) {
     cardBg.append(address);
     cardBg.append(pNumber);
   }
+}
+
+function test() {
+  cardsEl.empty();
+  setTimeout(function () {
+    makeCards(tmp);
+  }, 500);
 }
 
 // Append the 'script' element to 'head'
