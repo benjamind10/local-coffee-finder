@@ -1,0 +1,26 @@
+/* body {
+    font-family: 'Odor Mean Chey', serif;
+} */
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+#map {
+  height: 400px;
+  width: 700px;
+  margin-bottom: 25px;
+}
+
+body {
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 80%;
+}
+
+#recipes-card {
+  text-align: center;
+}
+
+.event {
+  text-align: center;
+}

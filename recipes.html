@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/recipes.css">
     <title>Local Coffe Finder</title>
 </head>
 
@@ -19,17 +19,25 @@
             <a href="recipes.html" class="item">
                 Recipes
             </a>
-            <div class="right menu">
-                <div class="item">
-                    <div class="ui icon input">
-                        <input id="search-address" type="text" placeholder="Search for coffee...">
-                        <i class="search link icon"></i>
-                    </div>
-                </div>
-            </div>
         </div>
     </navbar>
     <br>
+
+    <div class="ui two column centered grid">
+        <div class="column">
+            <div style="display: none;" id="recipes-card" class="ui card centered fluid hide">
+                <div class="content">
+                    <div id="name" class="header">Project Timeline</div>
+                </div>
+                <div class="content">
+                    <h4 id="ingredients" class="ui sub header">Activity</h4>
+                </div>
+                <div class="content">
+                    <p id="description" class="ui sub header">Activity</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
