@@ -20,7 +20,7 @@ body {
   opacity: 0.5;
 }
 
-#test2 {
+#cardbg {
   background-color: chocolate;
 }
 
@@ -29,7 +29,7 @@ iframe {
   border-radius: 1%;
 }
 
-#search {
+#search-address {
   width: 300px;
   margin: 15px;
   padding: 10px;
