@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <link rel="stylesheet" href="./assets/css/recipes.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Local Coffe Finder</title>
 </head>
 
@@ -26,22 +26,11 @@
         </div>
     </navbar>
     <br>
-
-    <div class="ui two column centered grid">
-        <div class="column">
-            <div style="display: none;" id="recipes-card" class="ui card centered fluid hide">
-                <div class="content">
-                    <div id="name" class="header">Project Timeline</div>
-                </div>
-                <div class="content">
-                    <h2 id="ingredients" class="ui sub header">Ingredients:</h2>
-                </div>
-                <div class="content">
-                    <p id="description" class="ui sub header">Activity</p>
-                </div>
-            </div>
+    <!--Cards section start-->
+    <section class="ui centered grid">
+        <div id="cards-section" class="ui link cards">
         </div>
-    </div>
+    </section>
 
 
 
@@ -49,8 +38,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type='text/javascript' src='config.js'></script>
-    <script src="./assets/js/recipes.js"></script>
+    <script src="./assets/js/search.js"></script>
 </body>
 
 </html>

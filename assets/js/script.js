@@ -147,6 +147,8 @@ function nearbySearch(location) {
         createMarker(response.results[i]);
         placesArr.push(response.results[i].place_id);
       }
+    })
+    .then(function () {
       getPlaceInfo(placesArr);
     })
     .catch(function (error) {
