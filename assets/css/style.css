@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .title {
     text-align:left;
 }
@@ -11,3 +12,19 @@
 .navbar-item img {
     max-height: 14rem;
 }
+=======
+/* body {
+    font-family: 'Odor Mean Chey', serif;
+} */
+
+img {
+    height: 250px;
+    width: 250px;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 500px;
+  width: 700px;
+}
+>>>>>>> 27d392cc4dfe93cb43c1375771f2c482a9ed372a
