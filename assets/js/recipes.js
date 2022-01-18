@@ -8,7 +8,6 @@ let data;
 
 $(function () {
   getRecipe();
-  console.log(data);
 });
 
 function getRecipe() {
@@ -17,6 +16,9 @@ function getRecipe() {
     .then(function (response) {
       console.log(response);
       data = response;
+    })
+    .then(function () {
+      genRandomCoffee();
     })
     .catch(function (error) {
       console.log(error);
@@ -28,7 +30,12 @@ function genRandomCoffee() {
   console.log(num);
 
   recipeName.text(data[num].title);
-  ingredients.text(data[num].ingredients);
+  for (let i = 0; i < data[num].ingredients.length; i++) {
+    let ingredient = $('<p>');
+
+    ingredient.text(data[num].ingredients[i]);
+    ingredients.append(ingredient);
+  }
   description.text(data[num].description);
 
   recipesCard.css('display', 'block');
