@@ -22,7 +22,7 @@ body {
 }
 
 #name {
-  color: chocolate;
+  color: white;
   font-size: 35px;
   border-style: solid;
   border-bottom: thick line #000;
@@ -32,12 +32,12 @@ body {
 }
 
 #ingredients {
-  color: chocolate;
+  color: white;
   font-size: 15px;
 }
 
 #description {
-  color: chocolate;
+  color: white;
   font-size: 15px;
 }
 
@@ -50,5 +50,10 @@ body {
 }
 
 #aboutus {
-  background-color: white;
+  background-color: chocolate;
+  margin: 15px;
+}
+
+#recipes-card {
+  background-color: chocolate;
 }
