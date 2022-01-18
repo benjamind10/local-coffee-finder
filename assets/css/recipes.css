@@ -11,7 +11,7 @@
 }
 
 body {
-  background-image: url('../images/background.png');
+  background-image: url("../images/background.png");
   background-size: cover;
   background-attachment: fixed;
   background-position: 80%;
@@ -19,4 +19,24 @@ body {
 
 #recipes-card {
   text-align: center;
+}
+
+#name {
+  color: chocolate;
+  font-size: 35px;
+  border-style: solid;
+  border-bottom: thick line #000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+#ingredients {
+  color: chocolate;
+  font-size: 15px;
+}
+
+#description {
+  color: chocolate;
+  font-size: 15px;
 }
