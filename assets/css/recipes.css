@@ -41,22 +41,6 @@ body {
   font-size: 15px;
 }
 
-#fname {
-  color: chocolate;
-}
-
-#aboutyou {
-  color: chocolate;
-}
-
-#aboutus {
-  background-color: chocolate;
-  margin: 15px;
-  position: absolute;
-  bottom: 0;
-  left: 24%;
-}
-
 #recipes-card {
   background-color: chocolate;
 }
