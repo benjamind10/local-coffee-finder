@@ -1,5 +1,4 @@
 #aboutus {
-  background-color: chocolate;
   margin: 15px;
 }
 
@@ -12,8 +11,19 @@
 }
 
 body {
-  background-image: url("../images/background3.jpeg");
+  background-color: #663d14;
   background-size: cover;
   background-attachment: fixed;
   background-position: 80%;
+}
+
+#header {
+  color: white;
+  font-size: 35px;
+  border-style: solid;
+  border-bottom: thick line #000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: center;
 }

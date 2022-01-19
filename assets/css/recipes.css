@@ -48,3 +48,13 @@ body {
 #image {
   max-width: 10%;
 }
+
+#previous {
+  float: left;
+  background-color: #663d14;
+}
+
+#next {
+  float: right;
+  background-color: #663d14;
+}
