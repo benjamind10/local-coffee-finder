@@ -14,6 +14,7 @@ function makeCards(arr) {
   let len = searchHistory.length;
 
   for (let i = 0; i < len; i++) {
+    let data = arr[i].result;
     let card = $("<div class='card'>");
     let imgDiv = $("<div class='image'>");
     let imageEl = $('<img>');
@@ -27,21 +28,18 @@ function makeCards(arr) {
 
     cardsEl.append(card);
     card.append(imgDiv);
-    imgDiv.append(imageEl);
 
     imageEl.attr('src', './assets/images/dummyshop.jpg');
     imageEl.attr('alt', 'coffee shop front');
     card.append(cardBg);
 
-    shopName.text(arr[i].result.name);
+    shopName.text(data.name);
     cardBg.append(shopName);
     card.append(descriptionDiv);
 
-    ratingP.text(`Rating: ${arr[i].result.rating}`);
-    address.text(`Address: ${arr[i].result.formatted_address}`);
-    pNumber.text(
-      `Phone Number: ${arr[i].result.formatted_phone_number}`
-    );
+    ratingP.text(`Rating: ${data.rating}`);
+    address.text(`Address: ${data.formatted_address}`);
+    pNumber.text(`Phone Number: ${data.formatted_phone_number}`);
 
     cardBg.append(ratingP);
     cardBg.append(address);
