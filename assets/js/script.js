@@ -9,6 +9,7 @@ script.async = true;
 // Global Variables
 let map, infoWindow;
 let tmp = [];
+let tmp2;
 const center = { lat: 37.42778, lng: -77.62199 };
 
 $(document).on('submit', function (event) {
@@ -129,6 +130,7 @@ function createMarker(place) {
     });
     console.log(place.place_id);
     getPlaceInfo(place.place_id);
+    $('.ui.modal').modal('show');
   });
 }
 
@@ -155,17 +157,23 @@ function nearbySearch(location) {
 }
 
 function getPlaceInfo(place_id) {
-  const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address&key=${config.G_KEY}`;
+  const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address%2Cphoto&key=${config.G_KEY}`;
 
   $.ajax({
     url: queryUrl,
     method: 'GET',
-  }).then(function (response) {
-    makeCards(response);
-  });
+  })
+    .then(function (response) {
+      console.log(response);
+      makeCards(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 
 function makeCards(place) {
+  cardsEl.empty();
   let card = $("<div class='card'>");
   let imgDiv = $("<div class='image'>");
   let imageEl = $('<img>');
@@ -177,11 +185,20 @@ function makeCards(place) {
   let address = $("<p id='address'>");
   let pNumber = $("<p id='number'>");
 
-  cardsEl.append(card);
+  $('.ui.modal').append(cardsEl);
+  const pics = place.result.photos;
+  console.log(pics);
+
   card.append(imgDiv);
   imgDiv.append(imageEl);
+  cardsEl.append(card);
+  pics === undefined
+    ? imageEl.attr('src', './assets/images/dummyshop.jpg')
+    : imageEl.attr(
+        'src',
+        `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${pics[0].photo_reference}&key=${config.G_KEY}`
+      );
 
-  imageEl.attr('src', './assets/images/dummyshop.jpg');
   imageEl.attr('alt', 'coffee shop front');
   card.append(cardBg);
 
