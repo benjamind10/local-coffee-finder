@@ -21,8 +21,8 @@ A webpage that allows a user to find local coffee shops in there area or find re
 - HTML
 - CSS
 - JS
-- Bulma
-- jquery
+- Semantic UI
+- JQuery
 
 ## Website
 

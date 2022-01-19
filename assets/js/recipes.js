@@ -18,6 +18,7 @@ $('#next').on('click', function () {
 
 $('#previous').on('click', function () {
   const prev = prevRecipe.length - 2;
+  if (prevRecipe.length === 1) return;
   genCoffee(prevRecipe, prev);
   prevRecipe = [];
 });
@@ -42,9 +43,9 @@ function getRecipe() {
 
 function genCoffee(data = data, num) {
   console.log(data);
-  ingredients.empty();
 
   if (data.length === 0) return;
+  ingredients.empty();
 
   recipeName.text(data[num].title);
   for (let i = 0; i < data[num].ingredients.length; i++) {
