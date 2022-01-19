@@ -17,5 +17,9 @@ body {
 }
 
 #cardbg {
-  background-color: whitesmoke;
+  background-color: chocolate;
+  color: white;
+}
+
+#cards-section {
 }
