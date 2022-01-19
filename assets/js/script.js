@@ -56,7 +56,6 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-
           infoWindow.setPosition(pos);
           map.setCenter(pos);
           dragMarker.setPosition(pos);
@@ -128,7 +127,8 @@ function createMarker(place) {
       map,
       shouldFocus: false,
     });
-    // showInfo()
+    console.log(place.place_id);
+    getPlaceInfo(place.place_id);
   });
 }
 
@@ -148,88 +148,56 @@ function nearbySearch(location) {
         placesArr.push(response.results[i].place_id);
       }
     })
-    .then(function () {
-      getPlaceInfo(placesArr);
-    })
     .catch(function (error) {
       console.log(error);
     });
   console.log(placesArr);
 }
 
-function getPlaceInfo(placesArr) {
-  if (placesArr.length === 0) return;
-  let placesInfoArr = [];
+function getPlaceInfo(place_id) {
+  const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address&key=${config.G_KEY}`;
 
-  for (let i = 0; i < placesArr.length; i++) {
-    const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placesArr[i]}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address&key=${config.G_KEY}`;
-
-    $.ajax({
-      url: queryUrl,
-      method: 'GET',
-    })
-      .then(function (response) {
-        placesInfoArr.push(response);
-      })
-      .then(function () {
-        localStorage.setItem('places', JSON.stringify(placesInfoArr));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  console.log(placesInfoArr);
-  tmp = placesInfoArr;
-  test();
+  $.ajax({
+    url: queryUrl,
+    method: 'GET',
+  }).then(function (response) {
+    makeCards(response);
+  });
 }
 
-function makeCards(arr) {
-  let len = 3;
+function makeCards(place) {
+  let card = $("<div class='card'>");
+  let imgDiv = $("<div class='image'>");
+  let imageEl = $('<img>');
+  let cardBg = $("<div class='header' id='cardbg'>");
+  let shopName = $("<div class='header'>");
+  let descriptionDiv = $("<div class='description'>");
 
-  if (arr.length < 3) len = arr.length;
+  let ratingP = $("<p id='rating'>");
+  let address = $("<p id='address'>");
+  let pNumber = $("<p id='number'>");
 
-  for (let i = 0; i < len; i++) {
-    let card = $("<div class='card'>");
-    let imgDiv = $("<div class='image'>");
-    let imageEl = $('<img>');
-    let cardBg = $("<div class='header' id='cardbg'>");
-    let shopName = $("<div class='header'>");
-    let descriptionDiv = $("<div class='description'>");
+  cardsEl.append(card);
+  card.append(imgDiv);
+  imgDiv.append(imageEl);
 
-    let ratingP = $("<p id='rating'>");
-    let address = $("<p id='address'>");
-    let pNumber = $("<p id='number'>");
+  imageEl.attr('src', './assets/images/dummyshop.jpg');
+  imageEl.attr('alt', 'coffee shop front');
+  card.append(cardBg);
 
-    cardsEl.append(card);
-    card.append(imgDiv);
-    imgDiv.append(imageEl);
+  shopName.text(place.result.name);
+  cardBg.append(shopName);
+  card.append(descriptionDiv);
 
-    imageEl.attr('src', './assets/images/dummyshop.jpg');
-    imageEl.attr('alt', 'coffee shop front');
-    card.append(cardBg);
+  ratingP.text(`Rating: ${place.result.rating}`);
+  address.text(`Address: ${place.result.formatted_address}`);
+  pNumber.text(
+    `Phone Number: ${place.result.formatted_phone_number}`
+  );
 
-    shopName.text(arr[i].result.name);
-    cardBg.append(shopName);
-    card.append(descriptionDiv);
-
-    ratingP.text(`Rating: ${arr[i].result.rating}`);
-    address.text(`Address: ${arr[i].result.formatted_address}`);
-    pNumber.text(
-      `Phone Number: ${arr[i].result.formatted_phone_number}`
-    );
-
-    cardBg.append(ratingP);
-    cardBg.append(address);
-    cardBg.append(pNumber);
-  }
-}
-
-function test() {
-  cardsEl.empty();
-  setTimeout(function () {
-    makeCards(tmp);
-  }, 500);
+  cardBg.append(ratingP);
+  cardBg.append(address);
+  cardBg.append(pNumber);
 }
 
 // Append the 'script' element to 'head'
