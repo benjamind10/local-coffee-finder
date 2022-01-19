@@ -1,0 +1,19 @@
+#aboutus {
+  background-color: chocolate;
+  margin: 15px;
+}
+
+#aboutyou {
+  color: chocolate;
+}
+
+#fname {
+  color: chocolate;
+}
+
+body {
+  background-image: url("../images/background3.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 80%;
+}
