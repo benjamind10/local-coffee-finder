@@ -10,7 +10,7 @@
 }
 
 body {
-  background-image: url("../images/background2.jpeg");
+  background-image: url("../images/background4.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: 80%;
@@ -19,7 +19,4 @@ body {
 #cardbg {
   background-color: chocolate;
   color: white;
-}
-
-#cards-section {
 }
