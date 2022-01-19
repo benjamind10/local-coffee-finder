@@ -101,6 +101,13 @@ function initMap() {
   });
 
   nearbySearch(center);
+
+  // Resize stuff...
+  google.maps.event.addDomListener(window, 'resize', function () {
+    var center = map.getCenter();
+    google.maps.event.trigger(map, 'resize');
+    map.setCenter(center);
+  });
 }
 
 function handleError(hasGeolocation, infoWindow, pos) {
@@ -166,11 +173,11 @@ function getPlaceInfo(place_id) {
     .then(function (response) {
       console.log(response);
       makeCards(response);
+      localStorage.setItem('places', JSON.stringify(storageLocal));
     })
     .catch(function (error) {
       console.log(error);
     });
-  localStorage.setItem('places', JSON.stringify(storageLocal));
 }
 
 function makeCards(place) {
@@ -188,7 +195,6 @@ function makeCards(place) {
 
   $('.ui.modal').append(cardsEl);
   const pics = place.result.photos;
-  console.log(pics);
 
   card.append(imgDiv);
   imgDiv.append(imageEl);
@@ -207,7 +213,13 @@ function makeCards(place) {
   cardBg.append(shopName);
   card.append(descriptionDiv);
 
-  ratingP.text(`Rating: ${place.result.rating}`);
+  let rating = place.result.rating;
+
+  rating === undefined
+    ? ratingP.text('No rating available')
+    : ratingP.text(`Rating: ${place.result.rating}`);
+
+  // ratingP.text(`Rating: ${place.result.rating}`);
   address.text(`Address: ${place.result.formatted_address}`);
   pNumber.text(
     `Phone Number: ${place.result.formatted_phone_number}`

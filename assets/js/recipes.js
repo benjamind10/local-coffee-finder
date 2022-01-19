@@ -29,6 +29,7 @@ function getRecipe() {
       console.log(response);
       data = response;
       data.splice(20, 1);
+      data.splice(21, 1);
 
       num = Math.floor(Math.random() * data.length);
       genCoffee(data, num);
@@ -41,13 +42,13 @@ function getRecipe() {
 
 function genCoffee(data = data, num) {
   console.log(data);
+  ingredients.empty();
 
   if (data.length === 0) return;
 
   recipeName.text(data[num].title);
   for (let i = 0; i < data[num].ingredients.length; i++) {
     let ingredient = $('<p>');
-    ingredients.empty();
 
     ingredient.text(data[num].ingredients[i]);
     ingredients.append(ingredient);
