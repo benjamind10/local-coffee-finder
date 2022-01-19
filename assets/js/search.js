@@ -1,15 +1,17 @@
 let searchHistory;
 let cardsEl = $('#cards-section');
 
+$(function () {
+  getStorage();
+});
+
 function getStorage() {
   searchHistory = JSON.parse(localStorage.getItem('places'));
-  console.log(searchHistory);
+  makeCards(searchHistory);
 }
 
 function makeCards(arr) {
-  let len = 3;
-
-  if (arr.length < 3) len = arr.length;
+  let len = searchHistory.length;
 
   for (let i = 0; i < len; i++) {
     let card = $("<div class='card'>");

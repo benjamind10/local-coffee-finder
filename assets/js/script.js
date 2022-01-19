@@ -170,6 +170,8 @@ function getPlaceInfo(placesArr) {
     })
       .then(function (response) {
         placesInfoArr.push(response);
+      })
+      .then(function () {
         localStorage.setItem('places', JSON.stringify(placesInfoArr));
       })
       .catch(function (error) {
