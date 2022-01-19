@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Local Coffe Finder</title>
+    <link rel="stylesheet" href="./assets/css/search.css">
+    <title>Local Coffee Finder</title>
 </head>
 
 <body>
+    <!--Nav bar start-->
     <navbar>
         <div class="ui brown inverted secondary menu">
             <a href="./index.html" class="active item">
@@ -25,17 +26,27 @@
         </div>
         </div>
     </navbar>
-    <br>
+    <!--Navbar end-->
+
+    <!--Header start-->
+    <div class="ui sizer vertical segment">
+        <div class="ui large header" id="header">Recent Searches</div>
+    
+    </div>
+
+    <div class="ui divider"></div>
+
     <!--Cards section start-->
     <section class="ui centered grid">
         <div id="cards-section" class="ui link cards">
         </div>
     </section>
+    <!--Cards section end-->
 
 
 
 
-
+    <!--Linking JS files-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./assets/js/search.js"></script>

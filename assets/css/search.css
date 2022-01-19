@@ -1,0 +1,15 @@
+#header {
+  color: chocolate;
+  text-align: center;
+}
+
+body {
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 80%;
+}
+
+#cardbg {
+  background-color: chocolate;
+}
