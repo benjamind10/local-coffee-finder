@@ -28,13 +28,15 @@
     </navbar>
     <!--Nav Bar end-->
     <br>
-      
+
     <!--Recipes section start-->
     <div class="ui two column centered grid">
         <div class="column">
             <div style="display: none;" id="recipes-card" class="ui card centered fluid hide">
                 <div class="content">
-                    <div id="name" class="header">Project Timeline</div>
+                    <button id="previous" class="ui black button">Previous</button>
+                    <button id="next" class="ui black button">Next</button>
+                    <div id="name" class="header"></div>
                 </div>
                 <div class="content">
                     <h2 id="ingredients" class="ui sub header">Ingredients:</h2>
@@ -48,11 +50,11 @@
     <!--Recipes section end-->
 
     <!--About us section-->
-    
+
     <div class="ui four cards" id="aboutus">
         <div class="card">
             <div class="content">
-              <div class="header" id="fname">Ben</div>
+                <div class="header" id="fname">Ben</div>
                 <div class="meta">
                     <a>Github</a>
                     <a>Linkedin</a>
@@ -61,7 +63,7 @@
                     Matthew is an interior designer living in New York.
                 </div>
             </div>
-           
+
         </div>
         <div class="card">
              <div class="content">
@@ -78,7 +80,7 @@
 
         <div class="card">
             <div class="content">
-              <div class="header" id="fname">Tavon</div>
+                <div class="header" id="fname">Tavon</div>
                 <div class="meta">
                     <a>Github</a>
                     <a>Linkedin</a>
@@ -86,8 +88,8 @@
                 <div class="description" id="aboutyou">
                     Elyse is a copywriter working in New York.
                 </div>
-              </div>
             </div>
+        </div>
 
                 <div class="card">
                   <div class="content">
@@ -109,7 +111,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type='text/javascript' src='config.js'></script>
-    <script src="./assets/js/recipes.js"></script>
+        <script src="./assets/js/recipes.js"></script>
 </body>
 
 </html>

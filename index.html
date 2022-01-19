@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2&family=Shadows+Into+Light&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Local Coffee Finder</title>
@@ -13,7 +16,7 @@
 <body>
   <!--Nav bar start-->
   <navbar>
-    <div class="ui brown inverted secondary menu">
+    <div id="navbar" class="ui brown inverted secondary menu">
       <a href="./index.html" class="active item">
         Home
       </a>
@@ -31,10 +34,10 @@
 
   <!--Search bar-->
   <section class="ui centered grid">
-    <div class="ui search">
+    <div id="searchbox" class="ui search">
       <div class="ui icon input">
         <input class="prompt" id="search-address" type="text" placeholder="Search...">
-        <i class="search icon"></i>
+        <i id="search-icon" class="search icon"></i>
       </div>
     </div>
   </section>
@@ -49,26 +52,32 @@
   </section>
   <!--Map section end-->
 
+  <!-- Modal -->
+  <div id="modal" class="ui modal">
 
+  </div>
 
   <!--Cards section start-->
   <section class="ui centered grid">
     <div id="cards-section" class="ui link cards">
+
     </div>
   </section>
   <!--Cards section end-->
+  < <div class="ui divider">
+    </div>
 
-  <div class="ui divider"></div>
+    <!--Footer section start-->
 
-  <!--Footer section start-->
 
- 
 
-  <!--Linking JS file to HTML-->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script type='text/javascript' src='config.js'></script>
-  <script src=" assets/js/script.js"></script>
+    <!--Linking JS file to HTML-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script type='text/javascript' src='config.js'></script>
+    <script src=" assets/js/script.js"></script>
 </body>
 
 </html>
