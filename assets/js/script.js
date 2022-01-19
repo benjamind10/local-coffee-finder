@@ -8,8 +8,8 @@ script.async = true;
 
 // Global Variables
 let map, infoWindow;
+let storageLocal = [];
 let tmp = [];
-let tmp2;
 const center = { lat: 37.42778, lng: -77.62199 };
 
 $(document).on('submit', function (event) {
@@ -170,6 +170,7 @@ function getPlaceInfo(place_id) {
     .catch(function (error) {
       console.log(error);
     });
+  localStorage.setItem('places', JSON.stringify(storageLocal));
 }
 
 function makeCards(place) {
@@ -215,6 +216,7 @@ function makeCards(place) {
   cardBg.append(ratingP);
   cardBg.append(address);
   cardBg.append(pNumber);
+  storageLocal.push(place);
 }
 
 // Append the 'script' element to 'head'
