@@ -1,0 +1,21 @@
+#header {
+  color: white;
+  text-align: center;
+  font-size: 35px;
+  border-style: solid;
+  border-bottom: thick line chocolate;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+body {
+  background-image: url("../images/background2.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 80%;
+}
+
+#cardbg {
+  background-color: whitesmoke;
+}
