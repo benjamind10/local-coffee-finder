@@ -16,8 +16,6 @@ function makeCards(arr) {
   for (let i = 0; i < len; i++) {
     let data = arr[i].result;
     let card = $("<div class='card'>");
-    let imgDiv = $("<div class='image'>");
-    let imageEl = $('<img>');
     let cardBg = $("<div class='header' id='cardbg'>");
     let shopName = $("<div class='header'>");
     let descriptionDiv = $("<div class='description'>");
@@ -27,10 +25,7 @@ function makeCards(arr) {
     let pNumber = $("<p id='number'>");
 
     cardsEl.append(card);
-    card.append(imgDiv);
 
-    imageEl.attr('src', './assets/images/dummyshop.jpg');
-    imageEl.attr('alt', 'coffee shop front');
     card.append(cardBg);
 
     shopName.text(data.name);

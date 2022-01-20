@@ -15,6 +15,9 @@ body {
   background-attachment: fixed;
   background-position: 80%;
   font-family: 'Shadows Into Light', cursive;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #shoppic {
@@ -59,4 +62,20 @@ iframe {
 
 #search-icon {
   padding-right: 4.5em;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 50px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: var(--primary);
+  color: var(--secondary);
+  margin-top: auto;
 }
