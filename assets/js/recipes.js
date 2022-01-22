@@ -4,13 +4,16 @@ let recipeName = $('#name');
 let ingredients = $('#ingredients');
 let description = $('#description');
 
+// Global Variables
 let data, num;
 let prevRecipe = [];
 
+// Function that loads when page initializes
 $(function () {
   getRecipe();
 });
 
+// Event handlers for buttons
 $('#next').on('click', function () {
   num = Math.floor(Math.random() * data.length);
   genCoffee(data, num);
@@ -23,6 +26,7 @@ $('#previous').on('click', function () {
   prevRecipe = [];
 });
 
+// Grabs the recipe from the API
 function getRecipe() {
   const baseURL = 'https://api.sampleapis.com/coffee/hot';
   $.ajax({ url: baseURL, method: 'GET' })
@@ -41,6 +45,7 @@ function getRecipe() {
     });
 }
 
+// Function that will generate a random recipe from the API
 function genCoffee(data = data, num) {
   console.log(data);
 

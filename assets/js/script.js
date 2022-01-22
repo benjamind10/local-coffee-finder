@@ -16,12 +16,14 @@ $(document).on('submit', function (event) {
   event.preventDefault();
 });
 
+// The function that makes the map render
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center,
     zoom: 12,
   });
 
+  // Makes the marker component inside the map
   let dragMarker = new google.maps.Marker({
     position: center,
     map,
@@ -30,6 +32,7 @@ function initMap() {
     icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
   });
 
+  // Event listener for when the dragger is moved
   dragMarker.addListener('dragend', () => {
     let getPos = dragMarker.getPosition();
 
@@ -40,6 +43,7 @@ function initMap() {
 
   infoWindow = new google.maps.InfoWindow();
 
+  // This creates new button to display on top
   const locationButton = document.createElement('button');
 
   locationButton.textContent = 'Go To  Your Location';
@@ -72,6 +76,7 @@ function initMap() {
     }
   });
 
+  // This section handles the autocomplete call
   let autocomplete;
   let input = document.getElementById('search-address');
 
@@ -110,6 +115,7 @@ function initMap() {
   });
 }
 
+// This handles errors of the browsers geolocation
 function handleError(hasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
@@ -120,6 +126,7 @@ function handleError(hasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+// This function creates a marker
 function createMarker(place) {
   if (!place.geometry || !place.geometry.location) return;
 
@@ -141,8 +148,8 @@ function createMarker(place) {
   });
 }
 
+// Once the marker is moved this function will search the lat/lng around the marker
 function nearbySearch(location) {
-  // if ((tmp = {})) tmp = center;
   const placesArr = [];
 
   const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe&key=${config.G_KEY}`;
@@ -163,6 +170,7 @@ function nearbySearch(location) {
   console.log(placesArr);
 }
 
+// Once theuser clicks the marker they want to view this will query the Google Place API
 function getPlaceInfo(place_id) {
   const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address%2Cphoto%2Curl&key=${config.G_KEY}`;
 
@@ -180,6 +188,7 @@ function getPlaceInfo(place_id) {
     });
 }
 
+// This will generate the new modal with all the Place info retrieved
 function makeCards(place) {
   cardsEl.empty();
   let card = $("<div class='card'>");

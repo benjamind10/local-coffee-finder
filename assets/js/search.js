@@ -1,3 +1,4 @@
+// Universal Variables
 let searchHistory;
 let cardsEl = $('#cards-section');
 
@@ -5,11 +6,13 @@ $(function () {
   getStorage();
 });
 
+// Grabs the data that is saved in localstorage
 function getStorage() {
   searchHistory = JSON.parse(localStorage.getItem('places'));
   makeCards(searchHistory);
 }
 
+// Function to generate the cards displayed in the history page
 function makeCards(arr) {
   let len = searchHistory.length;
 
