@@ -170,7 +170,7 @@ function nearbySearch(location) {
   console.log(placesArr);
 }
 
-// Once theuser clicks the marker they want to view this will query the Google Place API
+// Once the user clicks the marker they want to view this will query the Google Place API
 function getPlaceInfo(place_id) {
   const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address%2Cphoto%2Curl&key=${config.G_KEY}`;
 
