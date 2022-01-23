@@ -1,0 +1,1 @@
+var config = {G_KEY:"myAPIKey"}
