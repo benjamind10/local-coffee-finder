@@ -80,7 +80,7 @@ ul.nobullets {
 }
 body {
     font-family: Open Sans;
-    background-image: url(../assets/images/markus-spiske-da7AMukpg2k-unsplash-med.jpg);
+    background-image: url("../images/raindrops-background.jpeg");
 }
 
 h1 {
@@ -93,7 +93,6 @@ h1 {
 
 #quiz {
     text-indent: 10px;
-    display:none;
 }
 
 .button {

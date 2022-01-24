@@ -1,22 +1,22 @@
 var questions = [{
-        question1: "Do you need a quiet location?",
+        question: "Do you need a quiet location?",
         choices: ["yes", "no"],
         userResponse: []
     },
     {
-        question2: "Are you hoping to grab food - not just pasteries?",
+        question: "Are you hoping to grab food - not just pasteries?",
         choices: ["yes please!", "not really..."],
         userResponse: []
     }, {
-        question3: "Do you want a busy,more social cafe?",
+        question: "Do you want a busy,more social cafe?",
         choices: ["Absolutely!", "no, I really need to focus..."],
         userResponse: []
     }, {
-        question4: "Are you hoping for a more historic spot?",
+        question: "Are you hoping for a more historic spot?",
         choices: ["yes. I love these sort of places...", "no, I just want a nice ambience"],
         userResponse: []
     }
-]
+];
 
 var questionCounter = 0; //Tracks question number
 var selections = []; //Array containing user choices
@@ -77,12 +77,10 @@ $('.button').on('mouseleave', function () {
     $(this).removeClass('active');
 });
 
-// Creates and returns the div that contains the questions and 
+// Creates and returns the div that contains the questions and
 // the answer selections
 function createQuestionElement(index) {
-    var qElement = $('div', {
-        id: 'question'
-    });
+    var qElement = $("<div></div>").attr("id", "question");
 
     var header = $('<h2>Question ' + (index + 1) + ':</h2>');
     qElement.append(header);
@@ -96,6 +94,51 @@ function createQuestionElement(index) {
     return qElement;
 }
 
+function displayScore() {
+    var qElement = $("<div></div>").attr("id", "result");
+
+    var header = $('<h2>Results:</h2>');
+    qElement.append(header);
+
+    console.log(JSON.stringify(selections, null, 3))
+    
+    var result= []
+
+    if(selections[0]==0){
+    result.push("Blanchards")  
+    }
+
+    if(selections[1]==0){
+        result.push("Roastolgy") 
+        result.push("Ironclad") 
+        }
+
+    if(selections[1]==1){
+            result.push("Blanchards")  
+            }
+
+    if(selections[2]==0){
+                result.push("Ironclad") 
+                result.push("Roastology") 
+    }
+    if(selections[2]==1){
+                result.push("Blanchards") 
+                }
+    if(selections[3]==0){
+                    result.push("Ironclad")
+                    result.push("Blanchards")
+    }
+    if(selections[3]==1){
+        result.push("Roastology")
+    }
+
+
+
+    var question = $('<p>').append(JSON.stringify([...new Set(result)]));
+    qElement.append(question);
+
+    return qElement;
+}
 //Creates a list of the answer choices as radio inputs
 function createRadios(index) {
     var radioList = $('<ul>');
@@ -118,63 +161,29 @@ function choose() {
 
 // Displays next requested element
 function displayNext() {
-    quiz.fadeOut(function () {
-        $('#question').remove();
+    // quiz.fadeOut(function () {
+     $('#question').remove();
+    if (questionCounter < questions.length) {
+        var nextQuestion = createQuestionElement(questionCounter);
+        quiz.append(nextQuestion);
 
-        if (questionCounter < questions.length) {
-            var nextQuestion = createQuestionElement(questionCounter);
-            quiz.append(nextQuestion).fadeIn();
-            if (!(isNaN(selections[questionCounter]))) {
-                $('input[value=' + selections[questionCounter] + ']').prop('checked', true);
-            }
-
-            // Controls display of 'prev' button
-            if (questionCounter === 1) {
-                $('#prev').show();
-            } else if (questionCounter === 0) {
-
-                $('#prev').hide();
-                $('#next').show();
-            }
-        } else {
-            var scoreElem = displayScore();
-            quiz.append(scoreElem).fadeIn();
-            $('#next').hide();
-            $('#prev').hide();
-            $('#start').show();
+        if (!(isNaN(selections[questionCounter]))) {
+            $('input[value=' + selections[questionCounter] + ']').prop('checked', true);
         }
-    });
-}
-//Using forEach()Method
-//creating a set
 
-
-
-//List all Elements
-let text = "";
-letters.forEach(function (value) {
-        text += value;
+        // Controls display of 'prev' button
+        if (questionCounter === 1) {
+            $('#prev').show();
+        } else if (questionCounter === 0) {
+            $('#prev').hide();
+            $('#next').show();
+        }
+    } else {
+        var scoreElem = displayScore();
+        quiz.append(scoreElem).fadeIn();
+        $('#next').hide();
+        $('#prev').hide();
+        $('#start').show();
     }
-
-
-    // Computes score and returns a paragraph element to be displayed
-    //function displayResponse() {
-    //var Response = $('<p>', {
-    //id: 'question'
-    //});
-
-    //var Response = 0;
-    //for (var i = 0; i < selections.length; i++) {
-    //if (selections[i] === questions[i].correctAnswer) {
-    //numCorrect++;
-
-    //}
-    //Question Responses
-
-
-    //string[] Response = {"yes", "no", "Doesn't matter"}               
-    //for (string i : Response) {
-
-
-
-)();
+    // });
+}
