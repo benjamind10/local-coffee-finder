@@ -1,3 +1,12 @@
+/* HTML Selectors */
+body {
+  background-image: url('../images/background4.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 80%;
+}
+
+/* ID Selectors */
 #header {
   color: white;
   text-align: center;
@@ -7,13 +16,6 @@
   border-top: none;
   border-left: none;
   border-right: none;
-}
-
-body {
-  background-image: url("../images/background4.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 80%;
 }
 
 #cardbg {

@@ -1,3 +1,12 @@
+/* HTML Selectors */
+body {
+  background-color: #663d14;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 80%;
+}
+
+/* ID Selectors */
 #aboutus {
   margin: 15px;
 }
@@ -8,13 +17,6 @@
 
 #fname {
   color: chocolate;
-}
-
-body {
-  background-color: #663d14;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 80%;
 }
 
 #header {

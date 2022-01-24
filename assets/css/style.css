@@ -1,14 +1,10 @@
+/* CSS Variables */
 :root {
   --primary: chocolate;
   --secondary: whitesmoke;
 }
 
-#map {
-  height: 600px;
-  width: 900px;
-  margin-bottom: 25px;
-}
-
+/* HTML Selectors */
 body {
   background-image: url('../images/background.png');
   background-size: cover;
@@ -17,17 +13,19 @@ body {
   font-family: 'Shadows Into Light', cursive;
 }
 
+/* ID selectors */
+#map {
+  height: 600px;
+  width: 900px;
+  margin-bottom: 25px;
+}
+
 #shoppic {
   opacity: 0.5;
 }
 
 #cardbg {
   background-color: var(--secondary);
-}
-
-iframe {
-  border: 2px solid var(--primary);
-  border-radius: 1%;
 }
 
 #search-address {
