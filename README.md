@@ -3,6 +3,7 @@
 - Project Title: Local Coffee Finder
 - Project Description: App which will display a list of places where coffee is being served around the position set by the user. It provides insight on the place with pictures and ratings. Also provides general information such as phone number and address. The second section allows you to view most popular coffee recipes and the ingredients needed for them.
 - APIs to be used: Googe Maps (https://developers.google.com/), Sample Coffee API (https://sampleapis.com/api-list/coffee)
+- Link to the deployed app: https://benjamind10.github.io/local-coffee-finder/
 
 ```
 AS A Coffee Enthusiast
