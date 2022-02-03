@@ -151,23 +151,36 @@ function createMarker(place) {
 // Once the marker is moved this function will search the lat/lng around the marker
 function nearbySearch(location) {
   const placesArr = [];
+  const service = new google.maps.places.PlacesService(map);
+  const request = {
+    location: { lat: location.lat, lng: location.lng },
+    radius: 2000,
+    keyword: 'cafe',
+  };
+  service.nearbySearch(request, results => {
+    console.log(results);
+    for (let i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+      placesArr.push(results[i].place_id);
+    }
+  });
 
-  const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe&key=${config.G_KEY}`;
+  // const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe&key=${config.G_KEY}`;
 
-  $.ajax({
-    url: queryUrl,
-    method: 'GET',
-  })
-    .then(function (response) {
-      for (let i = 0; i < response.results.length; i++) {
-        createMarker(response.results[i]);
-        placesArr.push(response.results[i].place_id);
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  console.log(placesArr);
+  // $.ajax({
+  //   url: queryUrl,
+  //   method: 'GET',
+  // })
+  //   .then(function (response) {
+  //     for (let i = 0; i < response.results.length; i++) {
+  //       createMarker(response.results[i]);
+  //       placesArr.push(response.results[i].place_id);
+  //     }
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+  // console.log(placesArr);
 }
 
 // Once the user clicks the marker they want to view this will query the Google Place API
