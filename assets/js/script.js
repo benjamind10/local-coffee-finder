@@ -164,101 +164,78 @@ function nearbySearch(location) {
       placesArr.push(results[i].place_id);
     }
   });
-
-  // const queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat}%2C${location.lng}&radius=2000&region=us&type=cafe&key=${config.G_KEY}`;
-
-  // $.ajax({
-  //   url: queryUrl,
-  //   method: 'GET',
-  // })
-  //   .then(function (response) {
-  //     for (let i = 0; i < response.results.length; i++) {
-  //       createMarker(response.results[i]);
-  //       placesArr.push(response.results[i].place_id);
-  //     }
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // console.log(placesArr);
 }
 
 // Once the user clicks the marker they want to view this will query the Google Place API
 function getPlaceInfo(place_id) {
-  const queryUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=name%2Crating%2Cformatted_phone_number%2Cformatted_address%2Cphoto%2Curl&key=${config.G_KEY}`;
+  let request = {
+    placeId: place_id,
+    fields: [
+      'name',
+      'rating',
+      'formatted_phone_number',
+      'formatted_address',
+      'photos',
+    ],
+  };
 
-  $.ajax({
-    url: queryUrl,
-    method: 'GET',
-  })
-    .then(function (response) {
-      console.log(response);
-      makeCards(response);
-      localStorage.setItem('places', JSON.stringify(storageLocal));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  const service = new google.maps.places.PlacesService(map);
+  service.getDetails(request, callback);
+
+  function callback(place, status) {
+    if (!place.photos) place.photos = '';
+    makeCards(place);
+    localStorage.setItem('places', JSON.stringify(storageLocal));
+  }
 }
 
 // This will generate the new modal with all the Place info retrieved
 function makeCards(place) {
   cardsEl.empty();
-  let card = $("<div class='card'>");
-  let imgDiv = $("<div class='image'>");
-  let imageEl = $('<img>');
-  let cardBg = $("<div class='header' id='cardbg'>");
-  let shopName = $("<div class='header'>");
-  let descriptionDiv = $("<div class='description'>");
+  const alt = 'coffee shop front';
 
-  let ratingP = $("<p id='rating'>");
-  let address = $("<p id='address'>");
-  let pNumber = $("<p id='number'>");
-  let link = $("<a id='link'>");
+  const picAtts =
+    place.photos === ''
+      ? {
+          src: './assets/images/dummyshop.jpg',
+          alt,
+        }
+      : {
+          src: place.photos[0].getUrl(),
+          alt,
+        };
 
   $('.ui.modal').append(cardsEl);
-  const pics = place.result.photos;
 
-  card.append(imgDiv);
-  imgDiv.append(imageEl);
+  const card = $(`
+
+<div class="card">
+  <div class="image">
+    <img src="${picAtts.src}" alt="${picAtts.alt}">
+  </div>
+  <div class="header" id="cardbg">
+    <div class="header">
+      ${place.name}
+    </div>
+    <p id="rating">
+      ${place.rating}
+    </p>
+    <p id="address">
+      ${place.formatted_address}
+    </p>
+    <p id="number">
+    ${
+      place.formatted_phone_number
+        ? `Phone Number: ${place.formatted_phone_number}`
+        : 'Phone Number Unavailable'
+    }
+    </p>
+  </div>
+  <div className="description">
+  </div>
+</div>
+`);
   cardsEl.append(card);
-
-  let alt = 'coffee shop front';
-
-  pics === undefined
-    ? imageEl.attr({
-        src: './assets/images/dummyshop.jpg',
-        alt,
-      })
-    : imageEl.attr({
-        src: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${pics[0].photo_reference}&key=${config.G_KEY}`,
-        alt,
-      });
-
-  card.append(cardBg);
-
-  shopName.text(place.result.name);
-  cardBg.append(shopName);
-  card.append(descriptionDiv);
-
-  let rating = place.result.rating;
-
-  rating === undefined
-    ? ratingP.text('No rating available')
-    : ratingP.text(`Rating: ${place.result.rating}`);
-
-  address.text(`Address: ${place.result.formatted_address}`);
-
-  !place.result.formatted_phone_number
-    ? pNumber.text('Phone Number Unavailable')
-    : pNumber.text(
-        `Phone Number: ${place.result.formatted_phone_number}`
-      );
-
-  cardBg.append(ratingP);
-  cardBg.append(address);
-  cardBg.append(pNumber);
-  storageLocal.push(place);
 }
 
 // Append the 'script' element to 'head'
