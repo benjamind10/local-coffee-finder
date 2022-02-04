@@ -17,7 +17,7 @@ function makeCards(arr) {
   let len = searchHistory.length;
 
   for (let i = 0; i < len; i++) {
-    let data = arr[i].result;
+    let data = arr[i];
     let card = $("<div class='card'>");
     let imgDiv = $("<div class='image'>");
     let imageEl = $('<img>');
@@ -41,8 +41,12 @@ function makeCards(arr) {
     card.append(descriptionDiv);
 
     ratingP.text(`Rating: ${data.rating}`);
-    address.text(`Address: ${data.formatted_address}`);
-    pNumber.text(`Phone Number: ${data.formatted_phone_number}`);
+    data.formatted_address
+      ? address.text(`Address: ${data.formatted_address}`)
+      : address.text('Address Not Available');
+    data.formatted_phone_number
+      ? pNumber.text(`Phone Number: ${data.formatted_phone_number}`)
+      : pNumber.text('Phone Number Not Available');
 
     cardBg.append(ratingP);
     cardBg.append(address);

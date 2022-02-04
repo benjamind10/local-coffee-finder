@@ -235,6 +235,7 @@ function makeCards(place) {
   </div>
 </div>
 `);
+  storageLocal.push(place);
   cardsEl.append(card);
 }
 
